@@ -74,7 +74,8 @@ function showTrial() {
   progressText.textContent = "Word " + (current + 1) + " of " + trials.length;
   wordText.textContent = trial.word;
   wordText.style.color = codeFor(trial.ink);
-  // FEATURE 2 - PART B GOES HERE
+  // Start the clock now, when this word appears.
+  shownAt = performance.now();
 }
 
 // Runs when someone taps a colour button.
@@ -82,7 +83,16 @@ function answer(chosen) {
   if (trialBox.hidden) {
     return; // the test is not running, so ignore the tap
   }
-  // FEATURE 2 - PART C GOES HERE
+  const trial = trials[current];
+  const time = Math.round(performance.now() - shownAt);
+  // Right means the tap matches the INK colour, not the word.
+  const correct = chosen === trial.ink;
+  results.push({ matching: trial.matching, time: time, correct: correct });
+  let rightOrWrong = "wrong";
+  if (correct) {
+    rightOrWrong = "right";
+  }
+  lastAnswerText.textContent = "Last answer: " + time + " ms, " + rightOrWrong;
   current = current + 1;
   if (current < trials.length) {
     showTrial();
@@ -106,7 +116,11 @@ for (const button of colourButtons) {
   });
 }
 
-// FEATURE 2 - PART A GOES HERE
+// ----- Feature 2: time each answer -----
+const lastAnswerText = document.getElementById("last-answer");
+
+let results = []; // one entry for each answer: matching or not, time, right or wrong
+let shownAt = 0; // the moment the word we are on appeared
 
 // FEATURE 3 - PART A GOES HERE
 
@@ -117,7 +131,8 @@ for (const button of colourButtons) {
 function startTest() {
   trials = shuffle(makeTrials());
   current = 0;
-  // FEATURE 2 - PART D GOES HERE
+  results = [];
+  lastAnswerText.textContent = "";
   message.textContent = "";
   intro.hidden = true;
   // FEATURE 3 - PART B GOES HERE
