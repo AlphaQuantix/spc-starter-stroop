@@ -15,6 +15,7 @@ const COLOURS = [
 // How many words of each kind the test shows.
 const MATCHING_WORDS = 6; // the word and its ink are the same colour
 const CLASHING_WORDS = 6; // the word and its ink are different colours
+const PRACTICE_WORDS = 3; // practice words at the start, not counted
 
 // ----- Parts of the page -----
 const intro = document.getElementById("intro");
@@ -71,7 +72,7 @@ function makeTrials() {
 // Shows the word we are on.
 function showTrial() {
   const trial = trials[current];
-  progressText.textContent = "Word " + (current + 1) + " of " + trials.length;
+  progressText.textContent = progressLabel();
   wordText.textContent = trial.word;
   wordText.style.color = codeFor(trial.ink);
   // Start the clock now, when this word appears.
@@ -87,7 +88,10 @@ function answer(chosen) {
   const time = Math.round(performance.now() - shownAt);
   // Right means the tap matches the INK colour, not the word.
   const correct = chosen === trial.ink;
-  results.push({ matching: trial.matching, time: time, correct: correct });
+  // Practice words are not counted.
+  if (!trial.practice) {
+    results.push({ matching: trial.matching, time: time, correct: correct });
+  }
   let rightOrWrong = "wrong";
   if (correct) {
     rightOrWrong = "right";
@@ -203,12 +207,28 @@ function showResult() {
 
 againButton.addEventListener("click", startTest);
 
-// STRETCH - PART A GOES HERE
+// ----- Stretch: a practice round -----
+// Makes the practice words. Each one is marked "practice", so the result skips it.
+function makePractice() {
+  const list = shuffle(makeTrials()).slice(0, PRACTICE_WORDS);
+  for (const trial of list) {
+    trial.practice = true;
+  }
+  return list;
+}
+
+// The line above the word, like "Practice 1 of 3 (not counted)" or "Word 1 of 12".
+function progressLabel() {
+  if (current < PRACTICE_WORDS) {
+    return "Practice " + (current + 1) + " of " + PRACTICE_WORDS + " (not counted)";
+  }
+  return "Word " + (current + 1 - PRACTICE_WORDS) + " of " + (trials.length - PRACTICE_WORDS);
+}
 
 // ----- Start -----
 // This runs when someone taps Start.
 function startTest() {
-  trials = shuffle(makeTrials());
+  trials = makePractice().concat(shuffle(makeTrials()));
   current = 0;
   results = [];
   lastAnswerText.textContent = "";
