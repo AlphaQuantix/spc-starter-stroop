@@ -1,0 +1,141 @@
+/* Stroop test styles.
+   This file already has the styles for the parts you will add later,
+   so you do not need to change it to finish the three features. */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Anything with the "hidden" attribute stays hidden. */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: #f5f5f4;
+  color: #1c1917;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0 0 12px;
+}
+
+section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #57534e;
+}
+
+.ink-red {
+  color: #c62828;
+  font-weight: bold;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  /* Stops a quick double tap from zooming the page on a phone. */
+  touch-action: manipulation;
+}
+
+.big-button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #1c1917;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#message {
+  margin-bottom: 0;
+}
+
+/* ----- The trial box (feature 1) ----- */
+
+#progress,
+#last-answer {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #57534e;
+  text-align: center;
+  min-height: 1.5em;
+}
+
+#word {
+  margin: 24px 0;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-align: center;
+  /* Stops the word being selected by a long tap. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#colour-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.colour-button {
+  padding: 18px 8px;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.colour-button[data-colour="RED"] {
+  background: #c62828;
+}
+
+.colour-button[data-colour="BLUE"] {
+  background: #1565c0;
+}
+
+.colour-button[data-colour="GREEN"] {
+  background: #2e7d32;
+}
+
+.colour-button[data-colour="PURPLE"] {
+  background: #6a1b9a;
+}
+
+/* ----- The result box (feature 3) ----- */
+
+#result p {
+  margin: 0 0 10px;
+}
+
+#result-sentence {
+  padding: 12px;
+  border-radius: 8px;
+  background: #f5f5f4;
+}
