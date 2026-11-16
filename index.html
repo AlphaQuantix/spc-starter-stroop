@@ -30,7 +30,16 @@
       <p id="last-answer"></p>
     </section>
 
-    <!-- FEATURE 3 - THE RESULT BOX GOES HERE -->
+    <section id="result" hidden>
+      <h2>Your result</h2>
+      <p>Matching words, average time: <strong id="matching-time"></strong></p>
+      <p>Clashing words, average time: <strong id="clashing-time"></strong></p>
+      <p>The gap (clashing minus matching): <strong id="gap-time"></strong></p>
+      <p>Right answers: <strong id="correct-count"></strong></p>
+      <p id="result-sentence"></p>
+      <p class="small">The average times count right answers only. "ms" means milliseconds: 1000 ms is one second. This page keeps nothing. When you close it, your result is gone.</p>
+      <button id="again-button" class="big-button" type="button">Try again</button>
+    </section>
   </main>
 
   <script src="script.js"></script>
