@@ -41,6 +41,10 @@ A millisecond (ms) is one thousandth of a second. So 1000 ms is one second.
    let shownAt = 0; // the moment the word we are on appeared
    ```
 
+A **variable** is a name that holds a value, like a box with a label on it.
+`let` makes a variable whose value can change later. `const` makes one that stays the same.
+Here `results` holds the list of answers, and `shownAt` holds the moment the word appeared.
+
 ## Step 3: Start the clock when each word appears (part B)
 
 1. Find this line. It is inside `function showTrial()`:

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="14">
+  <title>Drawing: the pencil icon that opens the editor</title>
+  <rect width="720" height="200" fill="#ffffff" stroke="#d0d7de"/>
+  <rect x="16" y="16" width="688" height="48" rx="6" fill="#f6f8fa" stroke="#d0d7de"/>
+  <rect x="28" y="26" width="56" height="28" rx="6" fill="#ffffff" stroke="#d0d7de"/><text x="40" y="45" fill="#1f2328">Code</text>
+  <text x="96" y="45" fill="#59636e">Blame</text>
+  <text x="200" y="45" fill="#1f2328" font-weight="600">script.js</text>
+  <rect x="470" y="26" width="44" height="28" rx="6" fill="#ffffff" stroke="#d0d7de"/><text x="480" y="45" fill="#1f2328">Raw</text>
+  <rect x="520" y="26" width="32" height="28" rx="6" fill="#ffffff" stroke="#d0d7de"/>
+  <rect x="529" y="33" width="10" height="12" fill="none" stroke="#59636e"/><rect x="533" y="37" width="10" height="12" fill="#ffffff" stroke="#59636e"/>
+  <rect x="558" y="26" width="32" height="28" rx="6" fill="#ffffff" stroke="#d0d7de"/>
+  <path d="M574 33 v10 M569 39 l5 5 l5 -5 M567 48 h14" stroke="#59636e" fill="none" stroke-width="1.5"/>
+  <rect x="604" y="26" width="32" height="28" rx="6" fill="#ffffff" stroke="#d0d7de"/>
+  <path d="M613 47 l2 -6 l9 -9 l4 4 l-9 9 z" fill="none" stroke="#1f2328" stroke-width="1.5"/>
+  <circle cx="620" cy="40" r="24" fill="none" stroke="#d1242f" stroke-width="3"/>
+  <text x="16" y="100" fill="#59636e" font-family="Menlo, Consolas, monospace" font-size="13">1  // Stroop test code.</text>
+  <text x="16" y="122" fill="#59636e" font-family="Menlo, Consolas, monospace" font-size="13">2  const COLOURS = [</text>
+  <text x="400" y="110" fill="#d1242f" font-weight="600">Click the pencil icon.</text>
+  <text x="400" y="132" fill="#d1242f">Its label is "Edit this file".</text>
+  <text x="16" y="185" fill="#59636e" font-size="12">A drawing, not a screenshot. Your screen may look a little different.</text>
+</svg>

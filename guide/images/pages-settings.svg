@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="14">
+  <title>Drawing: the GitHub Pages settings</title>
+  <rect width="720" height="360" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="24" y="36" fill="#59636e">General</text>
+  <text x="24" y="62" fill="#59636e">Collaborators</text>
+  <text x="24" y="98" fill="#59636e" font-size="12" font-weight="600">Code and automation</text>
+  <text x="24" y="124" fill="#59636e">Branches</text>
+  <text x="24" y="150" fill="#59636e">Actions</text>
+  <rect x="16" y="162" width="160" height="30" rx="6" fill="#f6f8fa"/><rect x="16" y="166" width="4" height="22" rx="2" fill="#0969da"/>
+  <text x="28" y="182" fill="#1f2328" font-weight="600">Pages</text>
+  <rect x="12" y="158" width="168" height="38" rx="8" fill="none" stroke="#d1242f" stroke-width="3"/>
+  <line x1="200" y1="16" x2="200" y2="344" stroke="#d0d7de"/>
+  <text x="224" y="40" font-size="20" fill="#1f2328">GitHub Pages</text>
+  <text x="224" y="84" font-size="16" font-weight="600" fill="#1f2328">Build and deployment</text>
+  <text x="224" y="114" font-weight="600" fill="#1f2328">Source</text>
+  <rect x="224" y="124" width="200" height="32" rx="6" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="236" y="145" fill="#1f2328">Deploy from a branch  ▾</text>
+  <rect x="218" y="118" width="212" height="44" rx="8" fill="none" stroke="#d1242f" stroke-width="3"/>
+  <text x="224" y="190" font-weight="600" fill="#1f2328">Branch</text>
+  <rect x="224" y="200" width="100" height="32" rx="6" fill="#f6f8fa" stroke="#d0d7de"/><text x="236" y="221" fill="#1f2328">main  ▾</text>
+  <rect x="332" y="200" width="100" height="32" rx="6" fill="#f6f8fa" stroke="#d0d7de"/><text x="344" y="221" fill="#1f2328">/ (root)  ▾</text>
+  <rect x="440" y="200" width="64" height="32" rx="6" fill="#f6f8fa" stroke="#d0d7de"/><text x="456" y="221" fill="#1f2328">Save</text>
+  <rect x="218" y="194" width="292" height="44" rx="8" fill="none" stroke="#d1242f" stroke-width="3"/>
+  <text x="224" y="276" fill="#d1242f" font-weight="600">1. Click Pages.  2. Source: Deploy from a branch.</text>
+  <text x="224" y="300" fill="#d1242f" font-weight="600">3. Branch: main, folder / (root).  4. Click Save.</text>
+  <text x="224" y="340" fill="#59636e" font-size="12">A drawing, not a screenshot. Your screen may look a little different.</text>
+</svg>

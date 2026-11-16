@@ -16,12 +16,14 @@ Reading is so automatic that the word gets in the way.
 
 ## What is in this repository
 
+A **repository** (or "repo") is a project folder on GitHub. It holds the files, and a history of every change anyone has made to them.
+
 | File | What it is |
 |---|---|
 | `index.html` | The page: a title, the instructions and a Start button. |
 | `style.css` | How the page looks. It already has the styles for the parts you will add. |
 | `script.js` | The code. It has the list of colour words and colours. You add the rest. |
-| `guide/` | One guide for each feature. Follow them in order. |
+| `guide/` | One guide for each feature. Follow them in order. The `images` folder inside has the drawings the guides use. |
 | `.nojekyll` | An empty file. It tells GitHub Pages to serve the files as they are. Do not delete it. |
 
 ## Step 1: Make your own copy
@@ -31,8 +33,10 @@ Only one person in your pair does this step.
 1. Sign in to github.com. If you do not have an account, click **Sign up** and make one. Use your own email.
 2. Open this repository on github.com.
 3. Click the green **Use this template** button near the top right. Then click **Create a new repository**.
+
+   ![Drawing of the repository page. The green Use this template button is at the top right, and its menu shows Create a new repository.](guide/images/use-template.svg)
 4. Under **Owner**, pick your own account. Under **Repository name**, type a name, for example `stroop-test`.
-5. Leave **Include all branches** turned off. You only need the main branch.
+5. Leave **Include all branches** turned off. A **branch** is one line of saved changes in a repository. **main** is the main one, and the only one you need. Your site is built from it.
 6. Choose **Public**. GitHub Pages is free for public repositories.
 7. Click **Create repository**. After a few seconds you have your own copy.
 
@@ -51,6 +55,8 @@ GitHub Pages puts your site on the web for free.
 2. In the left menu, under "Code and automation", click **Pages**.
 3. Under **Build and deployment**, find **Source**. Pick **Deploy from a branch**.
 4. Under **Branch**, pick **main**. In the folder box next to it, pick **/ (root)**. Click **Save**.
+
+   ![Drawing of Settings, then Pages. Source is set to Deploy from a branch. Branch is main, the folder is / (root), and the Save button is next to them.](guide/images/pages-settings.svg)
 5. Wait one or two minutes. Then refresh the page.
 6. At the top you will see "Your site is live at" and a link. Click **Visit site**. Save this link: you will use it after every change.
 

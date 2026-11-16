@@ -135,9 +135,16 @@ The result shows **on the screen only**. The page keeps nothing. When the person
    // Puts the result on the screen. It is not saved or sent anywhere.
    function showResult() {
      const summary = summarise(results);
-     matchingTimeText.textContent = summary.matching + " ms";
-     clashingTimeText.textContent = summary.clashing + " ms";
-     gapText.textContent = summary.gap + " ms";
+     if (summary.enough) {
+       matchingTimeText.textContent = summary.matching + " ms";
+       clashingTimeText.textContent = summary.clashing + " ms";
+       gapText.textContent = summary.gap + " ms";
+     } else {
+       // Too few right answers to compare, so show a dash, not a made-up number.
+       matchingTimeText.textContent = "-";
+       clashingTimeText.textContent = "-";
+       gapText.textContent = "-";
+     }
      correctText.textContent = summary.correct + " of " + summary.total;
      sentenceText.textContent = resultSentence(summary);
      resultBox.hidden = false;
@@ -149,6 +156,7 @@ The result shows **on the screen only**. The page keeps nothing. When the person
 What this does: `summarise()` sorts the right answers into two lists, matching and clashing.
 `average()` works out the mean of each list.
 The gap is clashing minus matching. A gap above 50 ms counts as "slower" in the sentence.
+If the person got no matching words right, or no clashing words right, there is nothing to compare. Then `showResult()` shows a dash (-) instead of the times.
 
 ## Step 4: Hide the result box at each start (part B)
 
@@ -218,7 +226,7 @@ The result lives only in the page while it is open. If your project needs to col
 ## If something goes wrong
 
 - **No result box after the last word.** Check that `showResult();` is inside `function finish()`, and that you made both commits.
-- **The times show "0 ms".** The person got no right answers of that kind. The sentence will say so. Try again and tap the ink colour.
+- **The times show a dash (-).** The person got no right answers for matching words, or none for clashing words, so there is nothing to compare. The sentence will say so. Try again and tap the ink colour.
 - **Try again does nothing.** Check that the HTML button has `id="again-button"`.
 
 Back: [Feature 2](02-feature-2.md) · Next: [Stretch: add a practice round](stretch.md)

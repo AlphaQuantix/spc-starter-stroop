@@ -30,6 +30,8 @@ The trial box is the part of the page that holds the word and the four buttons.
 1. Go to the main page of your repository on github.com.
 2. In the list of files, click **index.html**.
 3. Click the **pencil icon** at the top right of the file. Its label is "Edit this file". The file opens in the editor.
+
+   ![Drawing of the bar above a file. The pencil icon is the last button on the right.](images/edit-pencil.svg)
 4. Find this line:
 
    ```html
@@ -70,6 +72,10 @@ A commit saves your change, with a short note that says what you did.
 
 3. Leave **Commit directly to the main branch** selected.
 4. Click the green **Commit changes** button.
+
+![Drawing of the Commit changes box. The commit message is typed in the top box, Commit directly to the main branch is selected, and the green Commit changes button is at the bottom right.](images/commit-dialog.svg)
+
+A **branch** is one line of saved changes in your repository. Your repository has one branch, called **main**. GitHub Pages builds your site from it, so your change goes live from there.
 
 A good commit message starts with what the change does, in a few words. Your future self, and your mentor, will read it.
 
@@ -194,7 +200,7 @@ A good commit message starts with what the change does, in a few words. Your fut
 Leave the lines that say `FEATURE 2` and `FEATURE 3` where they are. The next guides use them.
 
 What this does: `makeTrials()` builds six matching words and six clashing words.
-`shuffle()` mixes them into a random order.
+`shuffle()` mixes them into a random order. It uses the Fisher-Yates shuffle, a standard method named after the two statisticians who described it. It gives every order the same chance.
 `showTrial()` shows one word and paints it in its ink colour.
 Each tap calls `answer()`, which moves on to the next word.
 
