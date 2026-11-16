@@ -104,9 +104,7 @@ function answer(chosen) {
 // Runs after the last word.
 function finish() {
   trialBox.hidden = true;
-  // FEATURE 3 - PART C replaces this line and the next two.
-  intro.hidden = false;
-  message.textContent = "You did all " + trials.length + " words. Feature 3 will show your result here.";
+  showResult();
 }
 
 // Make each colour button call answer() with its own colour.
@@ -122,7 +120,88 @@ const lastAnswerText = document.getElementById("last-answer");
 let results = []; // one entry for each answer: matching or not, time, right or wrong
 let shownAt = 0; // the moment the word we are on appeared
 
-// FEATURE 3 - PART A GOES HERE
+// ----- Feature 3: show the person their result -----
+const resultBox = document.getElementById("result");
+const matchingTimeText = document.getElementById("matching-time");
+const clashingTimeText = document.getElementById("clashing-time");
+const gapText = document.getElementById("gap-time");
+const correctText = document.getElementById("correct-count");
+const sentenceText = document.getElementById("result-sentence");
+const againButton = document.getElementById("again-button");
+
+// Works out the average of a list of times. Gives back 0 for an empty list.
+function average(times) {
+  if (times.length === 0) {
+    return 0;
+  }
+  let total = 0;
+  for (const time of times) {
+    total = total + time;
+  }
+  return Math.round(total / times.length);
+}
+
+// Turns the list of answers into the numbers we show.
+// Only right answers count towards the average times.
+function summarise(list) {
+  const matchingTimes = [];
+  const clashingTimes = [];
+  let correctCount = 0;
+  for (const result of list) {
+    if (result.correct) {
+      correctCount = correctCount + 1;
+      if (result.matching) {
+        matchingTimes.push(result.time);
+      } else {
+        clashingTimes.push(result.time);
+      }
+    }
+  }
+  const matching = average(matchingTimes);
+  const clashing = average(clashingTimes);
+  return {
+    matching: matching,
+    clashing: clashing,
+    gap: clashing - matching,
+    correct: correctCount,
+    total: list.length,
+    enough: matchingTimes.length > 0 && clashingTimes.length > 0
+  };
+}
+
+// One plain sentence about the gap.
+function resultSentence(summary) {
+  if (!summary.enough) {
+    return "You got too few words right to compare. Try again, and tap the colour of the ink.";
+  }
+  if (summary.gap > 50) {
+    return "You were slower when the word and the ink clashed. This is the Stroop effect: reading the word gets in the way of naming the ink.";
+  }
+  if (summary.gap < -50) {
+    return "You were faster on the clashing words this time. With only " + summary.total + " words, one slow tap can change the result.";
+  }
+  return "Your times were about the same for both kinds of word. With only " + summary.total + " words, a small gap can come from chance.";
+}
+
+// Puts the result on the screen. It is not saved or sent anywhere.
+function showResult() {
+  const summary = summarise(results);
+  if (summary.enough) {
+    matchingTimeText.textContent = summary.matching + " ms";
+    clashingTimeText.textContent = summary.clashing + " ms";
+    gapText.textContent = summary.gap + " ms";
+  } else {
+    // Too few right answers to compare, so show a dash, not a made-up number.
+    matchingTimeText.textContent = "-";
+    clashingTimeText.textContent = "-";
+    gapText.textContent = "-";
+  }
+  correctText.textContent = summary.correct + " of " + summary.total;
+  sentenceText.textContent = resultSentence(summary);
+  resultBox.hidden = false;
+}
+
+againButton.addEventListener("click", startTest);
 
 // STRETCH - PART A GOES HERE
 
@@ -135,7 +214,7 @@ function startTest() {
   lastAnswerText.textContent = "";
   message.textContent = "";
   intro.hidden = true;
-  // FEATURE 3 - PART B GOES HERE
+  resultBox.hidden = true;
   trialBox.hidden = false;
   showTrial();
 }
